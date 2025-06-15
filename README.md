@@ -1,2 +1,2 @@
 # dochub
-Document Management and Basic Q&amp;amp;A Application
+Document Management and Basic Q&A Application
