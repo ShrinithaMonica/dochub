@@ -30,7 +30,7 @@ git clone https://github.com/ShrinithaMonica/dochub.git
 cd dochub
 ```
 
-### 2. Clone this repository
+### 2. To Start Containers
 ```bash
 docker-compose up -d
 ```
@@ -38,4 +38,9 @@ docker-compose up -d
 ### 3. To Stop Containers
 ```bash
 docker-compose down
+```
+
+### 4. To Login To Postgres
+```bash
+docker exec -it docker-postgres-1 psql -U postgres -d dochub
 ```
