@@ -34,17 +34,12 @@ public class ElasticsearchConfig {
             final BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
             credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(username, password));
 
-            builder = RestClient.builder(HttpHost.create(elasticHost))
-                    .setHttpClientConfigCallback(httpClientBuilder ->
-                            httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider));
+            builder = RestClient.builder(HttpHost.create(elasticHost)).setHttpClientConfigCallback(httpClientBuilder -> httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider));
         } else {
             builder = RestClient.builder(HttpHost.create(elasticHost));
         }
 
-        ElasticsearchTransport transport = new RestClientTransport(
-                builder.build(),
-                new JacksonJsonpMapper()
-        );
+        ElasticsearchTransport transport = new RestClientTransport(builder.build(), new JacksonJsonpMapper());
 
         return new ElasticsearchClient(transport);
     }
